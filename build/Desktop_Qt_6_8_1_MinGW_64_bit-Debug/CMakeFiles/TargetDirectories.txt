@@ -1,0 +1,9 @@
+C:/Users/elusses/Documents/textEditor/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/CMakeFiles/textEditor.dir
+C:/Users/elusses/Documents/textEditor/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/elusses/Documents/textEditor/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/elusses/Documents/textEditor/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
+C:/Users/elusses/Documents/textEditor/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/CMakeFiles/install.dir
+C:/Users/elusses/Documents/textEditor/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
+C:/Users/elusses/Documents/textEditor/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
+C:/Users/elusses/Documents/textEditor/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/CMakeFiles/textEditor_autogen_timestamp_deps.dir
+C:/Users/elusses/Documents/textEditor/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/CMakeFiles/textEditor_autogen.dir
