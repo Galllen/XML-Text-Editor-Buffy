@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
-#include "file.h"
 #include <QMessageBox>
 #include <QTextStream>
 #include <QFile>
@@ -12,59 +11,48 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     setCentralWidget(ui->textEdit);
     ui->statusbar->showMessage("Ok");
+    this->setWindowTitle("beefy's");
 }
 
 MainWindow::~MainWindow()
 {
+
     delete ui;
 }
-
+QString baseName;
 void MainWindow::on_actionOpen_triggered()
 {
-    File *wnd=  new File(this);
-    wnd->show();
-    connect(wnd,SIGNAL(filePath(QString)),this,SLOT(openFl(QStirng)));
+    QString fileName = QFileDialog::getOpenFileName(this, "Open File", ".txt","All files (*.*);;Text files (*.txt);;Configuration files (*.ini *.xml *.json *.yaml *.yml *.toml *.conf *.cfg)");
+    if (fileName.isEmpty()) {
+        return;
+    }
+    baseName = QFileInfo(fileName).fileName();
+    QFile file(fileName);
+    file.open(QIODevice::ReadOnly);
+    QString log = file.readAll();
+    ui->textEdit->setText(log);
+    file.flush();
+    file.close();
+    this->setWindowTitle(baseName +" beefy's");
 }
-
 
 void MainWindow::on_actionSave_triggered()
 {
-    File *wnd=  new File(this);
-    wnd->show();
-    connect(wnd,SIGNAL(filePath(QString)),this,SLOT(saveFl(QStirng)));
+        QString fileName = QFileDialog::getSaveFileName(this, "Save File",baseName);
+        if (fileName.isEmpty()) {
+            return;
+        }
+        QFile file(fileName);
+        if (!file.open(QIODevice::WriteOnly)) {
+            QMessageBox::critical(this, "Error", "Could not open file for writing.");
+            return;
+        }
+        QTextStream out(&file);
+        out << ui->textEdit->toPlainText();
+        file.flush();
+        file.close();
 }
 
-
-void MainWindow::openFl(const QString &filePath){
-    QFile mFile(filePath);
-    if(!mFile.open((QFile::ReadOnly|QFile::Text))){
-        QMessageBox::information(this,"Error","Error open file");
-        ui->statusbar->showMessage("Error open file");
-        return;
-    }
-    QTextStream stream(&mFile);
-    QString buffer=stream.readAll();
-    ui->textEdit->setText(buffer);
-    ui->statusbar->showMessage("Read to file: "+ filePath);
-
-    mFile.flush();//оптимизация памяти(не теряются данные)
-    mFile.close();//закрыли поток
-
-}
-
-void MainWindow::saveFl(const QString &filePath){
-    QFile mFile(filePath);
-    if(!mFile.open((QFile::WriteOnly|QFile::Text))){
-        QMessageBox::information(this,"Error","Error save file");
-        ui->statusbar->showMessage("Error save file");
-        return;
-    }
-    QTextStream stream(&mFile);
-    stream<<ui->textEdit->toPlainText();
-    ui->statusbar->showMessage("Write to file"+ filePath);
-    mFile.close();//закрыли поток
-
-}
 void MainWindow::on_actionExit_triggered()
 {
     close();

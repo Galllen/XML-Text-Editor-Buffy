@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+#include <QFileDialog>
 
 #include <QMainWindow>
 
@@ -18,8 +19,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void openFl(const QString &filePath);
-    void saveFl(const QString &filePath);
     void on_actionOpen_triggered();
     void on_actionSave_triggered();
     void on_actionExit_triggered();
