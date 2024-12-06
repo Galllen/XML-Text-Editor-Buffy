@@ -19,11 +19,16 @@ set(PROJECT_SOURCES
         mainwindow.ui
 )
 
+# Добавьте ресурсный файл
+set(RESOURCES
+    resources.qrc
+)
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(textEditor
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-
+        ${RESOURCES}
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET textEditor APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -33,12 +38,14 @@ else()
     if(ANDROID)
         add_library(textEditor SHARED
             ${PROJECT_SOURCES}
+            ${RESOURCES}
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
         add_executable(textEditor
             ${PROJECT_SOURCES}
+            ${RESOURCES}
         )
     endif()
 endif()
