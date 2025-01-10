@@ -52,8 +52,15 @@
     </property>
     <addaction name="actionopendota"/>
    </widget>
+   <widget class="QMenu" name="menuthem">
+    <property name="title">
+     <string>settings</string>
+    </property>
+    <addaction name="actionthem"/>
+   </widget>
    <addaction name="menufile"/>
    <addaction name="menudota"/>
+   <addaction name="menuthem"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionOpen">
@@ -79,6 +86,11 @@
   <action name="actionopendota">
    <property name="text">
     <string>open dota</string>
+   </property>
+  </action>
+  <action name="actionthem">
+   <property name="text">
+    <string>them</string>
    </property>
   </action>
  </widget>
