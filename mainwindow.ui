@@ -13,9 +13,6 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <property name="windowIcon">
-   <iconset theme="QIcon::ThemeIcon::DocumentPageSetup"/>
-  </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
@@ -46,12 +43,6 @@
     <addaction name="actionSave"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menudota">
-    <property name="title">
-     <string>dota</string>
-    </property>
-    <addaction name="actionopendota"/>
-   </widget>
    <widget class="QMenu" name="menuthem">
     <property name="title">
      <string>settings</string>
@@ -59,7 +50,6 @@
     <addaction name="actionthem"/>
    </widget>
    <addaction name="menufile"/>
-   <addaction name="menudota"/>
    <addaction name="menuthem"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
@@ -81,11 +71,6 @@
   <action name="actionSave_2">
    <property name="text">
     <string>Save</string>
-   </property>
-  </action>
-  <action name="actionopendota">
-   <property name="text">
-    <string>open dota</string>
    </property>
   </action>
   <action name="actionthem">

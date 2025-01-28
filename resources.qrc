@@ -7,5 +7,6 @@
         <file>icons/json.png</file>
         <file>icons/txt.png</file>
         <file>icons/xml.png</file>
+        <file>icons/edit.png</file>
     </qresource>
 </RCC>
